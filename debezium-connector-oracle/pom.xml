@@ -11,6 +11,11 @@
     <name>Debezium Connector for Oracle</name>
     <packaging>jar</packaging>
 
+    <properties>
+        <oracle-12r1-version>12.1.0.2</oracle-12r1-version>
+    </properties>
+
+
     <dependencies>
         <dependency>
             <groupId>io.debezium</groupId>
@@ -34,7 +39,7 @@
         <dependency>
             <groupId>com.oracle.instantclient</groupId>
             <artifactId>xstreams</artifactId>
-            <version>${version.oracle.driver}</version>
+            <version>${oracle-12r1-version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>

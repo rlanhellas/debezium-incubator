@@ -27,8 +27,6 @@ import io.debezium.relational.Tables.TableFilter;
 import io.debezium.relational.history.HistoryRecordComparator;
 import io.debezium.relational.history.KafkaDatabaseHistory;
 
-import oracle.streams.XStreamUtility;
-
 /**
  * Connector configuration for Oracle.
  *
@@ -214,14 +212,17 @@ public class OracleConnectorConfig extends HistorizedRelationalDatabaseConnector
         }
 
         public int getPosVersion() {
-            switch (version) {
-                case "11":
-                    return XStreamUtility.POS_VERSION_V1;
-                case "12+":
-                    return XStreamUtility.POS_VERSION_V2;
-                default:
-                    return XStreamUtility.POS_VERSION_V2;
-            }
+            return 2;
+            /*
+             * switch (version) {
+             * case "11":
+             * return XStreamUtility.POS_VERSION_V1;
+             * case "12+":
+             * return XStreamUtility.POS_VERSION_V2;
+             * default:
+             * return XStreamUtility.POS_VERSION_V2;
+             * }
+             */
         }
 
         public static OracleVersion parse(String value) {
